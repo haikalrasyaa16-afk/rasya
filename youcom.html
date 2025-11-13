@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Universitas Modern - Beranda</title>
+  <meta name="description" content="Universitas modern dengan program studi unggulan, kolaborasi industri, dan alumni inspiratif.">
+  <meta property="og:title" content="Universitas Modern - Beranda">
+  <meta property="og:description" content="Universitas modern dengan program studi unggulan, kolaborasi industri, dan alumni inspiratif.">
+  <meta property="og:image" content="/assets/placeholder-og.jpg">
+
+  <style>
+  /* Reset & Typography */
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0; padding: 0;
+    background: #f8fafc;
+    color: #222;
+    line-height: 1.6;
+  }
+  a { color: #3b82f6; text-decoration: none; }
+  a:focus, button:focus { outline: 2px solid #6366f1; outline-offset: 2px; }
+  .skip-link {
+    position: absolute; left: -999px; top: 10px; background: #fff; color: #1e293b;
+    padding: 8px 16px; z-index: 100; border-radius: 8px;
+  }
+  .skip-link:focus { left: 10px; }
+  .container {
+    max-width: 1100px; margin: 0 auto; padding: 0 1rem;
+  }
+
+  /* Header */
+  .topbar {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    position: sticky; top: 0; z-index: 10;
+  }
+  .nav {
+    display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; margin: 0; padding: 1rem 0;
+    justify-content: center;
+  }
+  .nav a { font-weight: 500; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; }
+  .nav a:hover, .nav a:focus { background: #e0e7ff; }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(90deg, #3b82f6 0%, #a78bfa 100%);
+    color: #fff; padding: 3rem 0 2rem 0;
+  }
+  .hero-content {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;
+  }
+  .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .hero p { font-size: 1.2rem; margin-bottom: 1.5rem; }
+  .hero-img {
+    width: 320px; max-width: 100%; border-radius: 1.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+  .cta {
+    display: inline-block; background: linear-gradient(90deg, #6366f1, #3b82f6);
+    color: #fff; padding: 0.75rem 1.5rem; border-radius: 1.5rem; font-weight: bold;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.15);
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+  .cta:hover, .cta:focus { background: #6366f1; box-shadow: 0 4px 16px rgba(99,102,241,0.25); }
+
+  /* Section General */
+  .section { padding: 3rem 0 2rem 0; }
+  .section-title {
+    font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, #3b82f6, #a78bfa); -webkit-background-clip: text; color: transparent;
+  }
+
+  /* Tabs */
+  .tabs { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+  .tabs button {
+    background: #e0e7ff; border: none; padding: 0.5rem 1.2rem; border-radius: 1rem;
+    font-weight: 500; color: #3730a3; cursor: pointer; transition: background 0.2s;
+  }
+  .tabs button[aria-selected="true"] { background: #6366f1; color: #fff; }
+  .tabs button:focus { outline: 2px solid #6366f1; }
+  .tab-panel { margin-bottom: 1.5rem; }
+
+  /* Program Studi */
+  .program-list {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;
+    list-style: none; padding: 0;
+  }
+  .program-list li {
+    background: #fff; border-radius: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 1rem; font-weight: 500; color: #1e293b;
+  }
+
+  /* Berita */
+  .news-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;
+  }
+  .card {
+    background: #fff; border-radius: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 1rem; display: flex; flex-direction: column; align-items: flex-start;
+  }
+  .card img {
+    width: 100%; border-radius: 1rem; margin-bottom: 1rem; object-fit: cover; aspect-ratio: 16/9;
+  }
+  .card h3 { font-size: 1.1rem; margin: 0 0 0.5rem 0; color: #3730a3; }
+
+  /* Kolaborasi */
+  .logo-cloud {
+    display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;
+    margin-bottom: 1rem;
+  }
+  .logo-cloud img {
+    width: 120px; height: 60px; object-fit: contain; background: #f1f5f9; border-radius: 1rem; padding: 1rem;
+  }
+
+  /* Alumni */
+  .alumni-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;
+  }
+  .alumni-grid .card img {
+    width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 0.5rem;
+  }
+
+  /* Sosmed */
+  .social-links {
+    display: flex; gap: 1.5rem; align-items: center;
+  }
+  .social-icon {
+    width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+    background: #fff; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: background 0.2s;
+  }
+  .social-icon:hover, .social-icon:focus { background: #e0e7ff; }
+
+  /* Podcast */
+  .podcast-card {
+    display: flex; gap: 1.5rem; align-items: center; background: #fff;
+    border-radius: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 1.5rem;
+  }
+  .podcast-card img {
+    width: 120px; height: 120px; border-radius: 1rem; object-fit: cover;
+  }
+
+  /* Tentang & Footer */
+  address { font-style: normal; color: #334155; margin-top: 1rem; }
+  .footer {
+    background: #1e293b; color: #fff; padding: 2rem 0 1rem 0; text-align: center;
+  }
+  .footer nav ul {
+    display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; list-style: none; padding: 0; margin: 0 0 1rem 0;
+  }
+  .footer nav a { color: #a5b4fc; }
+  .footer nav a:hover, .footer nav a:focus { color: #fff; text-decoration: underline; }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .hero-content { flex-direction: column; text-align: center; }
+    .podcast-card { flex-direction: column; text-align: center; }
+    .logo-cloud { gap: 1rem; }
+  }
+  @media (max-width: 500px) {
+    .section { padding: 2rem 0 1rem 0; }
+    .section-title { font-size: 1.3rem; }
+    .hero h1 { font-size: 1.5rem; }
+  }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Lewati ke konten utama</a>
+
+  <header class="topbar" role="banner">
+    <div class="container">
+      <nav aria-label="Navigasi utama">
+        <ul class="nav">
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#program">Program Studi</a></li>
+          <li><a href="#">Beasiswa</a></li>
+          <li><a href="#">Karir</a></li>
+          <li><a href="#">Daftar</a></li>
+          <li><a href="#tentang">Tentang Kami</a></li>
+          <li><a href="#">Alumni</a></li>
+          <li><a href="#berita">Berita</a></li>
+          <li><a href="#kolaborasi">Kolaborasi Strategis</a></li>
+          <li><a href="#">TDC</a></li>
+          <li><a href="#">Kemahasiswaan</a></li>
+          <li><a href="#">Laporan Tahunan</a></li>
+          <li><a href="#">Aplikasi Internal</a></li>
+          <li><a href="#kalender">Kalender Akademik</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero">
+      <div class="container hero-content">
+        <div>
+          <h1>Universitas Modern</h1>
+          <p>Menjadi perguruan tinggi unggul di bidang sains dan teknologi.</p>
+          <a href="#" class="cta">Daftar Sekarang</a>
+        </div>
+        <img src="/assets/placeholder-hero.jpg" alt="Ilustrasi mahasiswa universitas" loading="lazy" class="hero-img">
+      </div>
+    </section>
+
+    <section id="program" class="section">
+      <div class="container">
+        <h2 class="section-title">Program Studi</h2>
+        <div class="tabs" role="tablist" aria-label="Kategori Program Studi">
+          <button role="tab" aria-selected="true" aria-controls="panel-s1" id="tab-s1" tabindex="0">S1</button>
+          <button role="tab" aria-selected="false" aria-controls="panel-s2" id="tab-s2" tabindex="-1">S2</button>
+          <button role="tab" aria-selected="false" aria-controls="panel-profesi" id="tab-profesi" tabindex="-1">Profesi</button>
+          <button role="tab" aria-selected="false" aria-controls="panel-rpl" id="tab-rpl" tabindex="-1">RPL</button>
+        </div>
+        <div id="panel-s1" role="tabpanel" aria-labelledby="tab-s1" class="tab-panel">
+          <ul class="program-list">
+            <li>S1 Teknik Mesin</li>
+            <li>S1 Teknik Elektro</li>
+            <li>S1 Teknik Sipil</li>
+            <li>S1 Teknik Kimia</li>
+            <li>S1 Informatika</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="berita" class="section">
+      <div class="container">
+        <h2 class="section-title">Berita & Sorotan</h2>
+        <div class="news-grid">
+          <article class="card">
+            <img src="/assets/placeholder-news1.jpg" alt="Rektor ISTN Lakukan Kunjungan ke ITB" loading="lazy">
+            <h3>Rektor ISTN Lakukan Kunjungan ke ITB…</h3>
+            <p>Kunjungan kerja sama strategis antara ISTN dan ITB untuk pengembangan riset.</p>
+          </article>
+          <article class="card">
+            <img src="/assets/placeholder-news2.jpg" alt="ISTN Dorong Kedaulatan Digital Kesehatan" loading="lazy">
+            <h3>ISTN Dorong Kedaulatan Digital Kesehatan…</h3>
+            <p>Inovasi digital untuk mendukung sistem kesehatan nasional.</p>
+          </article>
+          <article class="card">
+            <img src="/assets/placeholder-news3.jpg" alt="ISTN Buka Peluang Magang di Jepang" loading="lazy">
+            <h3>ISTN Buka Peluang Magang di Jepang…</h3>
+            <p>Mahasiswa ISTN dapat mengikuti program magang di perusahaan Jepang terkemuka.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kolaborasi" class="section">
+      <div class="container">
+        <h2 class="section-title">ISTN Kampus Kolaborasi: ISTN x Industri</h2>
+        <div class="logo-cloud">
+          <img src="/assets/placeholder-logo1.svg" alt="Logo Mitra 1" loading="lazy">
+          <img src="/assets/placeholder-logo2.svg" alt="Logo Mitra 2" loading="lazy">
+          <img src="/assets/placeholder-logo3.svg" alt="Logo Mitra 3" loading="lazy">
+          <img src="/assets/placeholder-logo4.svg" alt="Logo Mitra 4" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section id="alumni" class="section">
+      <div class="container">
+        <h2 class="section-title">Alumni Inspiratif</h2>
+        <div class="alumni-grid">
+          <div class="card">
+            <img src="/assets/placeholder-alumni.jpg" alt="Dr. Ir. Afrianyah Noor" loading="lazy">
+            <h3>Dr. Ir. Afrianyah Noor</h3>
+            <p>Alumni berprestasi di bidang teknik dan inovasi nasional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sosmed" class="section">
+      <div class="container">
+        <h2 class="section-title">Ikuti Kami</h2>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram" class="social-icon">IG</a>
+          <a href="#" aria-label="YouTube" class="social-icon">YT</a>
+          <a href="#" aria-label="LinkedIn" class="social-icon">IN</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="podcast" class="section">
+      <div class="container">
+        <h2 class="section-title">Podcast & Radio Kampus</h2>
+        <div class="podcast-card">
+          <img src="/assets/placeholder-podcast.jpg" alt="Podcast Kampus" loading="lazy">
+          <div>
+            <p>Dengarkan inspirasi dan cerita dari civitas kampus melalui podcast dan radio kami.</p>
+            <a href="#" class="cta">Dengarkan Sekarang</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tentang" class="section">
+      <div class="container">
+        <h2 class="section-title">Tentang Kami</h2>
+        <p>Visi: Menjadi perguruan tinggi unggul di bidang sains dan teknologi.</p>
+        <p>Misi: Menyelenggarakan pendidikan, penelitian, dan pengabdian masyarakat yang inovatif.</p>
+        <address>Jl. Moh. Kahfi II, Jagakarsa, Jakarta Selatan, Indonesia</address>
+      </div>
+    </section>
+
+    <section id="kalender" class="section">
+      <div class="container">
+        <h2 class="section-title">Kalender Akademik</h2>
+        <a href="#" class="cta">Lihat Kalender Akademik</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <nav aria-label="Navigasi footer">
+        <ul>
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#program">Program Studi</a></li>
+          <li><a href="#tentang">Tentang Kami</a></li>
+          <li><a href="#alumni">Alumni</a></li>
+          <li><a href="#berita">Berita</a></li>
+        </ul>
+      </nav>
+      <p>&copy; 2025 Universitas Modern. Hak cipta dilindungi undang-undang.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haikal Rasya Ramadhan | Darkness Theme</title>
+  <style>
+    /* === DARKNESS MODE THEME === */
+    :root {
+      --bg-color: #0b0b0d;
+      --card-bg: #1a1a1f;
+      --text-color: #f0f0f0;
+      --accent: #6b4eff;
+      --accent-hover: #8a6bff;
+      --border: #2a2a30;
+      --shadow: 0 0 20px rgba(107, 78, 255, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      color: #cfcfcf;
+      max-width: 700px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 700px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .profile {
+      margin-bottom: 20px;
+    }
+
+    .profile img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      object-fit: cover;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+      transform: scale(1.05);
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.7rem;
+      }
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="profile">
+      <img src="https://via.placeholder.com/110x110.png?text=HRR" alt="Foto Profil Haikal Rasya">
+      <h1>Haikal Rasya Ramadhan</h1>
+      <p><strong>Lahir:</strong> Depok, 16 September 2007</p>
+    </div>
+    <p>
+      Halo! Saya Haikal, dan ini adalah web bertema <b>Darkness Modern</b>.  
+      Situs ini menampilkan profil pribadi saya sekaligus informasi singkat mengenai 
+      <b>ISTN (Institut Sains dan Teknologi Nasional)</b> — kampus yang dikenal dengan inovasi, penelitian, 
+      dan pengembangan teknologi modern untuk generasi masa depan.
+    </p>
+
+    <div class="links">
+      <a href="chatgpt.html" class="btn">ChatGPT</a>
+      <a href="gemini.html" class="btn">Gemini</a>
+      <a href="blackbox.html" class="btn">Blackbox</a>
+      <a href="chat.z.html" class="btn">Chat.Z</a>
+      <a href="meta.html" class="btn">Meta</a>
+      <a href="youcom.html" class="btn">You.com</a>
+      <a href="deepseek.html" class="btn">DeepSeek</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Haikal Rasya Ramadhan. All rights reserved.
+  </footer>
+
+  <script>
+    // Efek animasi tombol klik
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('click', e => {
+        button.style.transform = 'scale(0.9)';
+        setTimeout(() => (button.style.transform = 'scale(1)'), 150);
+      });
+    });
+  </script>
+</body>
+</html>

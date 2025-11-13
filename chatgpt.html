@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kampus Kolaborasi ISTN</title>
+<meta name="description" content="Website modern universitas dengan program studi, berita, kolaborasi industri, dan informasi alumni.">
+<meta property="og:title" content="Kampus Kolaborasi ISTN">
+<meta property="og:description" content="Belajar, Berinovasi, dan Berkarya di ISTN">
+<meta property="og:type" content="website">
+<style>
+:root {
+  --primary: #3b82f6;
+  --accent: #8b5cf6;
+  --bg: #f9fafb;
+  --text: #1e293b;
+  --radius: 1.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--accent); }
+img { max-width: 100%; border-radius: var(--radius); }
+
+header, main, footer { padding: 1rem 2rem; }
+.container { max-width: 1200px; margin: auto; }
+
+/* Skip to content */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  border-radius: 0.5rem;
+}
+.skip-link:focus {
+  top: 10px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.nav-links a {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.nav-links a:focus {
+  outline: 2px solid var(--accent);
+  border-radius: 0.5rem;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  border-radius: var(--radius);
+  margin-top: 1rem;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Section */
+section {
+  margin: 4rem 0;
+}
+section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: var(--primary);
+}
+
+/* Programs */
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 1.5rem;
+}
+.program-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+.program-card:hover {
+  transform: translateY(-5px);
+}
+
+/* News */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap: 1.5rem;
+}
+.news-item {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.news-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.news-content {
+  padding: 1rem;
+}
+.news-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Partners */
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  gap: 1.5rem;
+  align-items: center;
+  justify-items: center;
+}
+.logo-grid img {
+  width: 100px;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+.logo-grid img:hover { opacity: 1; }
+
+/* Alumni */
+.alumni-card {
+  text-align: center;
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.alumni-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  background: #1e293b;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+footer a { color: #93c5fd; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Lewati ke konten utama</a>
+
+<header class="navbar" aria-label="Navigasi utama">
+  <div class="logo"><strong>ISTN</strong></div>
+  <nav class="nav-links">
+    <a href="#">Beranda</a>
+    <a href="#program">Program Studi</a>
+    <a href="#beasiswa">Beasiswa</a>
+    <a href="#karir">Karir</a>
+    <a href="#daftar">Daftar</a>
+    <a href="#tentang">Tentang Kami</a>
+    <a href="#alumni">Alumni</a>
+    <a href="#berita">Berita</a>
+    <a href="#kolaborasi">Kolaborasi</a>
+  </nav>
+</header>
+
+<main id="main" class="container">
+  <section class="hero">
+    <h1>Kampus Kolaborasi ISTN</h1>
+    <p>Belajar. Berinovasi. Berkarya untuk Indonesia Maju.</p>
+  </section>
+
+  <section id="program">
+    <h2>Program Studi</h2>
+    <div class="program-grid">
+      <div class="program-card">
+        <h3>Sarjana (S1)</h3>
+        <p>Teknik Informatika, Sipil, Elektro, Mesin, Arsitektur, Manajemen, Akuntansi, Psikologi, dll.</p>
+      </div>
+      <div class="program-card">
+        <h3>Magister (S2)</h3>
+        <p>Manajemen, Teknik Industri, dan program lanjutan berbasis riset.</p>
+      </div>
+      <div class="program-card">
+        <h3>Profesi</h3>
+        <p>Program profesi insinyur dan sertifikasi kompetensi nasional.</p>
+      </div>
+      <div class="program-card">
+        <h3>RPL</h3>
+        <p>Rekognisi Pembelajaran Lampau bagi profesional berpengalaman.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="berita">
+    <h2>Berita & Sorotan</h2>
+    <div class="news-grid">
+      <div class="news-item">
+        <img src="/assets/placeholder-news1.jpg" alt="Kunjungan Rektor ke ITB" loading="lazy">
+        <div class="news-content">
+          <h3>Rektor ISTN Lakukan Kunjungan ke ITB</h3>
+          <p>Meningkatkan sinergi riset dan inovasi antar universitas.</p>
+        </div>
+      </div>
+      <div class="news-item">
+        <img src="/assets/placeholder-news2.jpg" alt="Kedaulatan Digital Kesehatan" loading="lazy">
+        <div class="news-content">
+          <h3>ISTN Dorong Kedaulatan Digital Kesehatan</h3>
+          <p>Mendukung infrastruktur data nasional yang mandiri.</p>
+        </div>
+      </div>
+      <div class="news-item">
+        <img src="/assets/placeholder-news3.jpg" alt="Magang di Jepang" loading="lazy">
+        <div class="news-content">
+          <h3>ISTN Buka Peluang Magang di Jepang</h3>
+          <p>Program kolaborasi dengan industri global.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kolaborasi">
+    <h2>Kolaborasi & Mitra Industri</h2>
+    <div class="logo-grid">
+      <img src="/assets/placeholder-logo1.svg" alt="Logo Mitra 1" loading="lazy">
+      <img src="/assets/placeholder-logo2.svg" alt="Logo Mitra 2" loading="lazy">
+      <img src="/assets/placeholder-logo3.svg" alt="Logo Mitra 3" loading="lazy">
+      <img src="/assets/placeholder-logo4.svg" alt="Logo Mitra 4" loading="lazy">
+    </div>
+  </section>
+
+  <section id="alumni">
+    <h2>Alumni Berprestasi</h2>
+    <div class="alumni-card">
+      <img src="/assets/placeholder-alumni.jpg" alt="Dr. Ir. Afrianyah Noor" loading="lazy">
+      <h3>Dr. Ir. Afrianyah Noor</h3>
+      <p>Alumni Teknik Kimia yang kini menjadi peneliti energi terbarukan.</p>
+    </div>
+  </section>
+
+  <section id="tentang">
+    <h2>Tentang Kami</h2>
+    <p><strong>Visi:</strong> Menjadi universitas unggul dalam inovasi dan kolaborasi industri.</p>
+    <p><strong>Misi:</strong> Mendidik generasi profesional beretika dan adaptif terhadap perkembangan teknologi global.</p>
+    <p><strong>Alamat:</strong> Jl. Moh. Kahfi II No.24, Jagakarsa, Jakarta Selatan, Indonesia.</p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 ISTN. Semua Hak Dilindungi.</p>
+  <p><a href="#kalender">Kalender Akademik</a> | <a href="#">Kontak</a></p>
+</footer>
+
+<!-- TODO: Ganti semua /assets/placeholder-* dengan aset asli kampus -->
+</body>
+</html>

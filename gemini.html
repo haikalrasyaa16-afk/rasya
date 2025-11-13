@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universitas Sains & Teknologi Nasional - Masa Depan Unggul Dimulai di Sini</title>
+    <meta name="description" content="Menjadi perguruan tinggi yang unggul dalam bidang Sains dan Teknologi Terapan yang diakui secara internasional.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#2563eb', // Blue-600
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="text-gray-900 font-sans antialiased">
+
+    <script>
+        const siteData = {
+            socialLinks: [
+                { name: 'Facebook', href: '#', icon: `<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>` },
+                { name: 'Instagram', href: '#', icon: `<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2.062c-3.266 0-3.642.014-4.91.07C6.07 2.186 4.963 2.396 4.074 2.748c-1.07 0-1.92.0-2.837.0-1.12.0-2.17.0-2.837.0C.326 2.748 0 3.818 0 5.163 0 6.429 0 6.8 0 8.086c0 1.286.014 1.662.07 2.928.056 1.266.266 2.373.618 3.262.352.89.89 1.63 1.78 2.518.89.89 1.628 1.428 2.518 1.78.89.352 1.996.562 3.262.618 1.266.056 1.642.07 2.928.07s1.662-.014 2.928-.07c1.266-.056 2.373-.266 3.262-.618.89-.352 1.63-.89 2.518-1.78.89-.89 1.428-1.628 1.78-2.518.352-.89.562-1.996.618-3.262.056-1.266.07-1.642.07-2.928s-.014-1.662-.07-2.928c-.056-1.266-.266-2.373-.618-3.262-.352-.89-.89-1.63-1.78-2.518C16.182.326 15.444 0 14.554 0c-.89-.352-1.996-.562-3.262-.618C10.02 2.076 9.644 2.062 8.358 2.062h-4.043zM12 4.869c-3.92 0-7.091 3.17-7.091 7.091s3.17 7.091 7.091 7.091 7.091-3.17 7.091-7.091S15.92 4.869 12 4.869zm0 11.758c-2.572 0-4.667-2.095-4.667-4.667s2.095-4.667 4.667-4.667 4.667 2.095 4.667 4.667-2.095 4.667-4.667 4.667zm4.818-11.336c-.781 0-1.414.633-1.414 1.414s.633 1.414 1.414 1.414 1.414-.633 1.414-1.414-.633-1.414-1.414-1.414z" clip-rule="evenodd" /></svg>` },
+                { name: 'Twitter', href: '#', icon: `<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.67.9-.54 1.58-1.4 1.9-2.38-.84.5-1.77.86-2.76 1.05C18.38 4.59 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.27 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.48.75 2.79 1.9 3.55-.7-.02-1.36-.21-1.94-.53v.05c0 2.07 1.47 3.8 3.42 4.19-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.7 2.12 2.94 4 2.97-1.46 1.14-3.3 1.82-5.3 1.82-.34 0-.68-.02-1.02-.06C3.44 20.29 5.54 21 7.8 21c7.48 0 11.57-6.2 11.57-11.57 0-.18 0-.35-.01-.52.8-.58 1.48-1.3 2.02-2.13z" /></svg>` },
+            ],
+            navLinks: [
+                { label: "Beranda", href: "#" },
+                { label: "Program Studi", href: "#programs" },
+                { label: "Beasiswa", href: "#" },
+                { label: "Daftar", href: "#daftar" },
+                { label: "Tentang Kami", href: "#about" },
+                { label: "Alumni", href: "#alumni" },
+                { label: "Berita", href: "#news" },
+            ],
+            hero: {
+                title: "Masa Depan Unggul Dimulai di Sini",
+                subtitle: "Menjadi perguruan tinggi yang unggul dalam bidang Sains dan Teknologi Terapan yang diakui secara internasional.",
+                cta: "Daftar Sekarang",
+                ctaLink: "#daftar",
+                image: "https://via.placeholder.com/800x500/dbeafe/1e3a8a?text=Hero+Image+Kampus" // Placeholder
+            },
+            programs: {
+                title: "Program Studi",
+                subtitle: "Jelajahi beragam program akademik kami yang dirancang untuk kesuksesan karir.",
+                tabs: [
+                    { name: "S1", content: ["Teknik Sipil", "Arsitektur", "Teknik Mesin", "Teknik Elektro", "Teknik Industri", "Informatika", "Sistem Informasi", "Perencanaan Wilayah & Kota"] },
+                    { name: "S2", content: ["Magister Teknik Mesin", "Magister Teknik Industri"] },
+                    { name: "Profesi", content: ["Program Profesi Insinyur (PPI)"] },
+                    { name: "RPL", content: ["Rekognisi Pembelajaran Lampau (RPL)"] }
+                ]
+            },
+            news: {
+                title: "Berita & Sorotan",
+                subtitle: "Tetap terinformasi dengan kejadian dan pencapaian terbaru di kampus kami.",
+                items: [
+                    { id: 1, title: "Rektor ISTN Kunjungan ke ITB", description: "Perkuat kolaborasi riset...", image: "https://via.placeholder.com/400x300/e0e7ff/1c1917?text=Berita+1", href: "#", date: "10 Nov 2025" },
+                    { id: 2, title: "ISTN Dorong Kedaulatan Digital Kesehatan", description: "Fakultas Informatika luncurkan program baru...", image: "https://via.placeholder.com/400x300/e0e7ff/1c1917?text=Berita+2", href: "#", date: "8 Nov 2025" },
+                    { id: 3, title: "Peluang Magang di Jepang", description: "Kerjasama baru dengan industri di Jepang...", image: "https://via.placeholder.com/400x300/e0e7ff/1c1917?text=Berita+3", href: "#", date: "5 Nov 2025" },
+                    { id: 4, title: "Tim Robotika Raih Juara 2", description: "Tim 'RoboTech' mengharumkan nama almamater...", image: "https://via.placeholder.com/400x300/e0e7ff/1c1917?text=Berita+4", href: "#", date: "2 Nov 2025" }
+                ]
+            },
+            alumni: {
+                title: "Sorotan Alumni",
+                subtitle: "Kisah sukses yang dimulai dari kampus kami.",
+                items: [
+                    { id: 1, name: "Dr. Ir. Afrianyah Noor", role: "Direktur, PT. Cipta Karsa", quote: "Pendidikan di kampus ini memberi saya landasan teknis yang kuat dan keterampilan kepemimpinan...", image: "https://via.placeholder.com/150/93c5fd/1e3a8a?text=Alumni+1" },
+                    { id: 2, name: "Siti Rahayu, S.T., M.Eng.", role: "Senior Software Engineer, TechCorp", quote: "Proyek-proyek praktis mempersiapkan saya untuk tantangan di dunia kerja.", image: "https://via.placeholder.com/150/93c5fd/1e3a8a?text=Alumni+2" },
+                    { id: 3, name: "Budi Santoso, S.Ars.", role: "Principal Architect, Griya Desain", quote: "Fokus Arsitektur pada desain yang berkelanjutan dan kontekstual menginspirasi saya...", image: "https://via.placeholder.com/150/93c5fd/1e3a8a?text=Alumni+3" }
+                ]
+            },
+            footer: {
+                contact: {
+                    name: "Universitas Sains & Teknologi Nasional",
+                    address: "Jl. Moh. Kahfi II, Srengseng Sawah, Jagakarsa, Jakarta Selatan 12640",
+                    phone: "(021) 727-0091",
+                    email: "info@kampus.ac.id"
+                },
+                links: [
+                    { title: "Akademik", items: [{ label: "Program Studi", href: "#programs" }, { label: "Beasiswa", href: "#" }, { label: "Penerimaan", href: "#" }] },
+                    { title: "Tentang", items: [{ label: "Visi & Misi", href: "#about" }, { label: "Sejarah", href: "#" }, { label: "Kontak", href: "#" }] },
+                ],
+                copyright: `© ${new Date().getFullYear()} Universitas Sains & Teknologi Nasional. Semua Hak Dilindungi.`
+            }
+        };
+    </script>
+
+    <a href="#main-content" class="sr-only focus:not-sr-only fixed top-4 left-4 z-50 p-3 bg-blue-600 text-white rounded-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-offset-2">
+        Lompat ke Konten Utama
+    </a>
+
+    <div class="hidden lg:block bg-gray-900 text-white text-xs py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <p>Penerimaan Mahasiswa Baru T.A. 2024/2025 telah dibuka! <a href="#" class="font-bold underline ml-1 hover:text-blue-400 transition-colors">Daftar Sekarang</a></p>
+            <div class="flex space-x-4">
+                <a href="tel:(021) 727-0091" class="hover:text-blue-400 transition-colors">Telp: (021) 727-0091</a>
+                <a href="mailto:info@kampus.ac.id" class="hover:text-blue-400 transition-colors">Email: info@kampus.ac.id</a>
+            </div>
+        </div>
+    </div>
+
+    <header id="site-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm transition-all duration-300 border-b border-gray-100" role="banner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3 text-2xl font-bold text-gray-900" aria-label="Beranda Universitas Sains & Teknologi Nasional">
+                <svg class="h-8 w-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L1 7l11 5 11-5-11-5zM4 10v9h3v-6h6v6h3v-9L12 12z" /></svg>
+                <span class="hidden sm:inline">ISTN</span>
+            </a>
+
+            <nav class="hidden lg:flex space-x-6 items-center" aria-label="Navigasi Utama">
+                <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">Beranda</a>
+                <a href="#programs" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">Program Studi</a>
+                <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">Beasiswa</a>
+                <a href="#about" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">Tentang Kami</a>
+                <a href="#alumni" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">Alumni</a>
+                <a href="#news" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">Berita</a>
+                <a href="#daftar" class="ml-4 inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-center transition-all duration-300 bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-blue-500/30">
+                    Daftar
+                </a>
+            </nav>
+
+            <button id="mobile-menu-button" class="lg:hidden p-2 text-gray-700 hover:text-blue-600" aria-controls="mobile-menu" aria-expanded="false" aria-label="Buka menu navigasi">
+                <svg id="menu-icon-open" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                <svg id="menu-icon-close" class="h-7 w-7 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="lg:hidden hidden absolute top-full w-full bg-white/95 backdrop-blur-md shadow-xl border-t border-gray-200" role="dialog" aria-modal="true">
+            <nav class="px-4 pt-2 pb-4 space-y-2" aria-label="Navigasi Mobile">
+                </nav>
+        </div>
+    </header>
+
+    <main id="main-content" tabindex="-1" role="main">
+        
+        <section id="hero" class="relative pt-12 pb-24 lg:pt-24 lg:pb-32 bg-gray-50 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative z-10 text-center lg:text-left">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight">
+                        Masa Depan Unggul Dimulai di Sini
+                    </h1>
+                    <p class="mt-4 text-xl text-gray-600 sm:mt-5 sm:text-2xl">
+                        Menjadi perguruan tinggi yang unggul dalam bidang Sains dan Teknologi Terapan yang diakui secara internasional.
+                    </p>
+                    <div class="mt-8 sm:flex sm:justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#daftar" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-center transition-all duration-300 bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-blue-500/30">
+                            Daftar Sekarang
+                        </a>
+                        <a href="#programs" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-center transition-all duration-300 bg-white text-blue-700 border border-blue-700 hover:bg-blue-50 shadow-md">
+                            Jelajahi Program
+                        </a>
+                    </div>
+                </div>
+        
+                <div class="relative mt-12 lg:mt-0">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl -rotate-1 shadow-2xl opacity-75 hidden lg:block" aria-hidden="true"></div>
+                    <img
+                        src="https://via.placeholder.com/800x500/dbeafe/1e3a8a?text=Hero+Image+Kampus"
+                        alt="Mahasiswa belajar di lingkungan kampus modern"
+                        loading="eager"
+                        class="w-full h-auto rounded-3xl object-cover shadow-2xl ring-4 ring-white relative transform hover:scale-[1.01] transition-transform duration-500 ease-in-out"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <section id="programs" class="py-20 sm:py-28 bg-white" role="region" aria-labelledby="programs-heading">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-12 text-center">
+                    <span class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Jelajahi beragam program akademik kami yang dirancang untuk kesuksesan karir.</span>
+                    <h2 id="programs-heading" class="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                        Program Studi
+                    </h2>
+                </div>
+                
+                <div id="program-tabs-container">
+                    </div>
+            </div>
+        </section>
+
+        <section id="news" class="py-20 sm:py-28 bg-gray-50" role="region" aria-labelledby="news-heading">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-12 text-center">
+                    <span class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Tetap terinformasi dengan kejadian dan pencapaian terbaru di kampus kami.</span>
+                    <h2 id="news-heading" class="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                        Berita & Sorotan
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    </div>
+
+                <div class="mt-12 text-center">
+                    <a href="#" class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-center transition-all duration-300 bg-white text-blue-700 border border-blue-700 hover:bg-blue-50 shadow-md">
+                        Lihat Semua Berita &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="alumni" class="py-20 sm:py-28 bg-blue-50" role="region" aria-labelledby="alumni-heading">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-12 text-center">
+                    <span class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Kisah sukses yang dimulai dari kampus kami.</span>
+                    <h2 id="alumni-heading" class="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                        Sorotan Alumni
+                    </h2>
+                </div>
+                
+                <div id="alumni-carousel" class="relative max-w-4xl mx-auto pb-12">
+                    </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 sm:py-28 bg-white" role="region" aria-labelledby="about-heading">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <div class="mb-6 text-left">
+                            <span class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Visi, Misi, dan Komitmen Kami</span>
+                            <h2 id="about-heading" class="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                                Tentang Kami
+                            </h2>
+                        </div>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            Menjadi perguruan tinggi yang unggul dalam bidang Sains dan Teknologi Terapan yang diakui secara internasional serta menjunjung tinggi nilai-nilai luhur budaya bangsa. Kami berkomitmen untuk menghasilkan lulusan yang kompeten, beretika, dan siap bersaing secara global.
+                        </p>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start space-x-3">
+                                <svg class="flex-shrink-0 h-6 w-6 text-blue-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <span class="font-medium text-gray-900">Keunggulan dalam Sains & Teknologi Terapan.</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <svg class="flex-shrink-0 h-6 w-6 text-blue-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <span class="font-medium text-gray-900">Diakui secara Internasional.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="p-6 md:p-8 bg-blue-50 rounded-2xl shadow-lg border border-gray-100 lg:sticky lg:top-28">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Alamat Kampus</h3>
+                        <p class="text-gray-700 mb-6">
+                            <span class="block font-semibold">Jl. Moh. Kahfi II, RT.11/RW.04</span>
+                            <span class="block">Srengseng Sawah, Kec. Jagakarsa</span>
+                            <span class="block">Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12640</span>
+                        </p>
+                        
+                        <div class="mt-4 rounded-xl overflow-hidden shadow-md border border-gray-200">
+                            <img
+                                src="https://via.placeholder.com/600x300/e0e7ff/1e3a8a?text=Peta+Kampus"
+                                alt="Peta lokasi kampus"
+                                loading="lazy"
+                                class="w-full h-56 object-cover"
+                            />
+                        </div>
+                        <div class="mt-6 text-center">
+                            <a href="#" class="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-center transition-all duration-300 bg-white text-blue-700 border border-blue-700 hover:bg-blue-50 shadow-md">
+                                Lihat di Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="daftar" class="py-20 bg-gray-900" role="region" aria-labelledby="daftar-heading">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="mb-6">
+                    <span class="text-sm font-semibold text-blue-400 uppercase tracking-wide">Peluang Karir dan Akademik Menanti</span>
+                    <h2 id="daftar-heading" class="mt-2 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                        Bergabunglah dengan Kami Sekarang
+                    </h2>
+                </div>
+                <a href="#" class="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-lg text-center transition-all duration-300 bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-blue-500/30">
+                    Daftar Penerimaan Mahasiswa Baru &rarr;
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white pt-16 pb-8" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="footer-content" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 border-b border-gray-700 pb-12">
+                </div>
+
+            <div id="copyright-text" class="mt-8 pt-4 text-center border-t border-gray-700">
+                </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('site-header');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIconOpen = document.getElementById('menu-icon-open');
+            const menuIconClose = document.getElementById('menu-icon-close');
+
+            // 1. Sticky Header Shadow
+            const observer = new IntersectionObserver(([entry]) => {
+                header.classList.toggle('shadow-xl', !entry.isIntersecting);
+                header.classList.toggle('border-b', !entry.isIntersecting);
+            }, { threshold: 0 });
+            observer.observe(document.body);
+
+            // 2. Mobile Menu Toggle
+            mobileMenuButton.addEventListener('click', () => {
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+                menuIconOpen.classList.toggle('hidden');
+                menuIconClose.classList.toggle('hidden');
+            });
+
+            // 3. Inject Mobile Navigation Links
+            const mobileNav = mobileMenu.querySelector('nav');
+            siteData.navLinks.forEach(link => {
+                const a = document.createElement('a');
+                a.href = link.href;
+                a.textContent = link.label;
+                a.className = "block w-full text-lg px-3 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors";
+                a.addEventListener('click', () => {
+                    // Close menu when link is clicked
+                    mobileMenuButton.click();
+                });
+                mobileNav.appendChild(a);
+            });
+
+            // 4. Inject Footer Content
+            const footerContent = document.getElementById('footer-content');
+            
+            // Kolom Kontak & Logo
+            const contactCol = document.createElement('div');
+            contactCol.className = 'col-span-2 lg:col-span-2';
+            contactCol.innerHTML = `
+                <a href="#" class="flex items-center space-x-3 text-2xl font-bold text-white mb-4" aria-label="Beranda Universitas Sains & Teknologi Nasional">
+                    <svg class="h-8 w-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L1 7l11 5 11-5-11-5zM4 10v9h3v-6h6v6h3v-9L12 12z" /></svg>
+                    <span>${siteData.footer.contact.name}</span>
+                </a>
+                <p class="text-gray-400 text-sm mt-4">${siteData.footer.contact.address}</p>
+                <p class="text-gray-400 text-sm mt-2">Telp: ${siteData.footer.contact.phone}</p>
+                <p class="text-gray-400 text-sm">Email: ${siteData.footer.contact.email}</p>
+            `;
+            footerContent.appendChild(contactCol);
+
+            // Kolom Tautan
+            siteData.footer.links.forEach(col => {
+                const colDiv = document.createElement('div');
+                let ul = `<ul class="space-y-2">`;
+                col.items.forEach(item => {
+                    ul += `<li><a href="${item.href}" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">${item.label}</a></li>`;
+                });
+                ul += `</ul>`;
+                colDiv.innerHTML = `<h3 class="text-lg font-semibold mb-4 text-white">${col.title}</h3>${ul}`;
+                footerContent.appendChild(colDiv);
+            });
+            
+            // Kolom Sosial Media
+            const socialCol = document.createElement('div');
+            socialCol.className = 'col-span-2 md:col-span-4 lg:col-span-1';
+            let socialIcons = `<div class="flex space-x-4">`;
+            siteData.socialLinks.forEach(link => {
+                socialIcons += `<a href="${link.href}" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="${link.name}">${link.icon}</a>`;
+            });
+            socialIcons += `</div>`;
+            socialCol.innerHTML = `<h3 class="text-lg font-semibold mb-4 text-white">Ikuti Kami</h3>${socialIcons}`;
+            footerContent.appendChild(socialCol);
+
+            // Copyright
+            document.getElementById('copyright-text').innerHTML = `<p class="text-gray-400 text-sm">${siteData.footer.copyright}</p>`;
+
+
+            // 5. Inject Program Tabs
+            const tabsContainer = document.getElementById('program-tabs-container');
+            let tabsHtml = `
+                <div class="border-b border-gray-200">
+                    <nav class="-mb-px flex space-x-8 overflow-x-auto" aria-label="Program Studi" role="tablist">
+                        ${siteData.programs.tabs.map((tab, index) => `
+                            <button
+                                data-tab-id="${index}"
+                                class="program-tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg sm:text-xl transition-colors duration-200 ${index === 0 ? 'border-blue-600 text-blue-800' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}"
+                                role="tab"
+                                aria-selected="${index === 0}"
+                                aria-controls="tab-panel-${index}"
+                                id="tab-${index}"
+                                tabindex="${index === 0 ? 0 : -1}"
+                            >
+                                ${tab.name}
+                            </button>
+                        `).join('')}
+                    </nav>
+                </div>
+                <div class="pt-8">
+                    ${siteData.programs.tabs.map((tab, index) => `
+                        <div
+                            id="tab-panel-${index}"
+                            role="tabpanel"
+                            tabindex="0"
+                            aria-labelledby="tab-${index}"
+                            class="tab-panel ${index === 0 ? 'block' : 'hidden'} bg-gray-50 p-6 sm:p-8 rounded-xl border border-gray-200"
+                        >
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 text-gray-700">
+                                ${tab.content.map(program => `
+                                    <li class="flex items-center space-x-2">
+                                        <svg class="h-5 w-5 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                        <span class="font-medium">${program}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            tabsContainer.innerHTML = tabsHtml;
+
+            // Tab functionality logic
+            const tabButtons = tabsContainer.querySelectorAll('.program-tab-button');
+            const tabPanels = tabsContainer.querySelectorAll('.tab-panel');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const targetId = parseInt(e.currentTarget.dataset.tabId);
+                    
+                    // Deactivate all
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('border-blue-600', 'text-blue-800');
+                        btn.classList.add('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                        btn.setAttribute('aria-selected', 'false');
+                        btn.setAttribute('tabindex', '-1');
+                    });
+                    tabPanels.forEach(panel => panel.classList.add('hidden'));
+
+                    // Activate target
+                    e.currentTarget.classList.add('border-blue-600', 'text-blue-800');
+                    e.currentTarget.classList.remove('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                    e.currentTarget.setAttribute('aria-selected', 'true');
+                    e.currentTarget.setAttribute('tabindex', '0');
+                    document.getElementById(`tab-panel-${targetId}`).classList.remove('hidden');
+                });
+            });
+
+
+            // 6. Inject News Cards
+            const newsContainer = document.querySelector('#news > div > div.grid');
+            siteData.news.items.forEach(item => {
+                const cardHtml = `
+                    <a href="${item.href}" class="bg-white shadow-lg shadow-blue-500/10 rounded-2xl overflow-hidden transition-all duration-300 ease-in-out border border-gray-100 flex flex-col h-full hover:shadow-xl hover:shadow-blue-500/20 group">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <div class="absolute bottom-0 right-0 p-3 bg-blue-600/80 text-white rounded-tl-xl text-xs font-medium">${item.date}</div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">${item.title}</h3>
+                            <p class="text-gray-600 text-sm flex-grow">${item.description}</p>
+                        </div>
+                    </a>
+                `;
+                newsContainer.insertAdjacentHTML('beforeend', cardHtml);
+            });
+            
+            // 7. Inject Alumni Carousel
+            const carouselContainer = document.getElementById('alumni-carousel');
+            
+            // Generate Carousel HTML structure
+            const carouselHtml = `
+                <div id="carousel-track" class="flex overflow-x-hidden snap-x snap-mandatory scrollbar-hide" role="group" aria-roledescription="carousel" tabindex="-1">
+                    ${siteData.alumni.items.map((item, index) => `
+                        <div
+                            id="slide-${item.id}"
+                            class="carousel-slide flex-shrink-0 w-full snap-start px-2"
+                            role="group"
+                            aria-roledescription="slide"
+                            aria-label="${index + 1} dari ${siteData.alumni.items.length}"
+                            tabindex="${index === 0 ? 0 : -1}"
+                        >
+                            <div class="bg-white shadow-xl shadow-blue-500/10 rounded-2xl overflow-hidden p-8 min-h-[350px] lg:min-h-[250px] flex flex-col lg:flex-row items-center text-center lg:text-left h-full border border-gray-100">
+                                <div class="lg:w-1/3 flex justify-center">
+                                    <img src="${item.image}" alt="Foto ${item.name}" loading="lazy" class="w-32 h-32 rounded-full object-cover shadow-lg ring-4 ring-blue-100" />
+                                </div>
+                                <div class="mt-6 lg:mt-0 lg:ml-8 lg:w-2/3">
+                                    <blockquote class="text-xl italic text-gray-700">
+                                        <p class="mb-4">"${item.quote}"</p>
+                                    </blockquote>
+                                    <p class="font-bold text-gray-900 text-lg mt-4">${item.name}</p>
+                                    <p class="text-blue-600 text-sm">${item.role}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <div class="absolute inset-y-0 left-0 flex items-center -ml-2 sm:ml-0">
+                    <button id="carousel-prev" aria-label="Slide sebelumnya" class="p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg text-gray-800 transition-colors hover:bg-white focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center -mr-2 sm:mr-0">
+                    <button id="carousel-next" aria-label="Slide berikutnya" class="p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg text-gray-800 transition-colors hover:bg-white focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                </div>
+                
+                <div id="carousel-dots" class="absolute bottom-[-30px] left-0 right-0 flex justify-center space-x-2">
+                    ${siteData.alumni.items.map((_, index) => `
+                        <button
+                            data-slide-index="${index}"
+                            aria-label="Lihat slide ${index + 1}"
+                            class="carousel-dot h-2 w-2 rounded-full transition-all duration-300 ${index === 0 ? 'bg-blue-600 w-6' : 'bg-gray-300 hover:bg-gray-400'}"
+                        ></button>
+                    `).join('')}
+                </div>
+            `;
+            carouselContainer.innerHTML = carouselHtml;
+
+            // Carousel functionality logic
+            const track = document.getElementById('carousel-track');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const prevButton = document.getElementById('carousel-prev');
+            const nextButton = document.getElementById('carousel-next');
+            const dotsContainer = document.getElementById('carousel-dots');
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            let currentIndex = 0;
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            const updateCarousel = (newIndex) => {
+                currentIndex = (newIndex + slides.length) % slides.length;
+                
+                // Scroll the track
+                const slideWidth = slides[0].offsetWidth;
+                track.scrollTo({
+                    left: slideWidth * currentIndex,
+                    behavior: prefersReducedMotion ? 'auto' : 'smooth'
+                });
+
+                // Update dots and accessibility
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('bg-blue-600', index === currentIndex);
+                    dot.classList.toggle('w-6', index === currentIndex);
+                    dot.classList.toggle('bg-gray-300', index !== currentIndex);
+                    dot.classList.toggle('w-2', index !== currentIndex);
+                });
+                slides.forEach((slide, index) => {
+                    slide.setAttribute('tabindex', index === currentIndex ? '0' : '-1');
+                });
+            };
+
+            prevButton.addEventListener('click', () => updateCarousel(currentIndex - 1));
+            nextButton.addEventListener('click', () => updateCarousel(currentIndex + 1));
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const index = parseInt(e.currentTarget.dataset.slideIndex);
+                    updateCarousel(index);
+                });
+            });
+
+            // Autoplay (dibatasi 5 detik)
+            if (!prefersReducedMotion) {
+                setInterval(() => updateCarousel(currentIndex + 1), 5000);
+            }
+        });
+    </script>
+
+</body>
+</html>

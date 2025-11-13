@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Universitas Teknologi Nasional - Kampus teknologi terdepan dengan program pendidikan berkualitas dan kolaborasi industri">
+    <title>UTN - Universitas Teknologi Nasional</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles for enhanced UX and accessibility */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom focus styles for better accessibility */
+        .focus-visible {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
+        }
+        
+        /* Line clamp utility */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        /* Custom gradient */
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Sticky header animation */
+        .sticky-header {
+            transition: all 0.3s ease;
+        }
+        
+        /* Custom carousel styles */
+        .carousel-container {
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+        }
+        
+        .carousel-slide {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+        }
+        
+        /* Loading animation */
+        .loading-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
+    
+    <!-- Top Bar -->
+    <div class="bg-gray-900 text-white text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center py-2 space-y-2 sm:space-y-0">
+                <div class="flex items-center space-x-4">
+                    <span class="flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        +62 21 1234 5678
+                    </span>
+                    <span class="hidden md:flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        info@utn.ac.id
+                    </span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="hover:text-blue-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Portal Mahasiswa</a>
+                    <a href="#" class="hover:text-blue-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">E-Learning</a>
+                    <a href="#" class="hover:text-blue-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Perpustakaan Digital</a>
+                    <a href="#" class="hover:text-blue-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Email Kampus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <header class="bg-white shadow-sm sticky-header" id="header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-lg">
+                        UTN
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-900">Universitas Teknologi Nasional</h1>
+                        <p class="text-sm text-gray-600 hidden sm:block">Membangun Masa Depan Teknologi Indonesia</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:block" aria-label="Main navigation">
+                    <ul class="flex space-x-8">
+                        <li><a href="#beranda" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-3 py-2">Beranda</a></li>
+                        <li><a href="#program-studi" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-3 py-2">Program Studi</a></li>
+                        <li><a href="#beasiswa" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-3 py-2">Beasiswa</a></li>
+                        <li><a href="#karir" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-3 py-2">Karir</a></li>
+                        <li><a href="#daftar" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-3 py-2">Daftar</a></li>
+                        <li><a href="#tentang-kami" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-3 py-2">Tentang Kami</a></li>
+                    </ul>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-2xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        Daftar Sekarang
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Toggle menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <nav id="mobile-menu" class="lg:hidden py-4 border-t border-gray-200 hidden" aria-label="Mobile navigation">
+                <ul class="space-y-2">
+                    <li><a href="#beranda" class="block py-2 px-4 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500">Beranda</a></li>
+                    <li><a href="#program-studi" class="block py-2 px-4 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500">Program Studi</a></li>
+                    <li><a href="#beasiswa" class="block py-2 px-4 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500">Beasiswa</a></li>
+                    <li><a href="#karir" class="block py-2 px-4 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500">Karir</a></li>
+                    <li><a href="#daftar" class="block py-2 px-4 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500">Daftar</a></li>
+                    <li><a href="#tentang-kami" class="block py-2 px-4 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500">Tentang Kami</a></li>
+                    <li><a href="#alumni" class="block py-2 px-4 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500">Alumni</a></li>
+                    <li><a href="#berita" class="block py-2 px-4 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500">Berita</a></li>
+                    <li><a href="#kolaborasi" class="block py-2 px-4 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500">Kolaborasi Strategis</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="beranda" class="bg-gradient-to-br from-blue-50 to-purple-50 py-20 lg:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <div class="space-y-4">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                Terakreditasi A - BAN PT
+                            </span>
+                            <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                                Kampus Teknologi
+                                <span class="block gradient-text">Masa Depan</span>
+                            </h1>
+                            <p class="text-xl text-gray-600 max-w-2xl">
+                                Membentuk generasi pemimpin teknologi Indonesia melalui pendidikan berkualitas, 
+                                penelitian inovatif, dan kolaborasi global.
+                            </p>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 text-lg rounded-2xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                                Jelajahi Program Studi
+                            </button>
+                            <button class="border-2 border-blue-600 text-blue-600 px-8 py-4 text-lg rounded-2xl font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                                Virtual Campus Tour
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-8 pt-8">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-gray-900">50+</div>
+                                <div class="text-sm text-gray-600">Program Studi</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-gray-900">15K+</div>
+                                <div class="text-sm text-gray-600">Mahasiswa</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-gray-900">200+</div>
+                                <div class="text-sm text-gray-600">Mitra Industri</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <!-- TODO: Replace placeholder with actual hero image -->
+                        <div class="bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl h-96 lg:h-[500px] flex items-center justify-center text-white text-lg">
+                            Hero Image - Modern Campus
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-yellow-400 rounded-2xl flex items-center justify-center text-white">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section id="program-studi" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Program Pendidikan</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                        Pilih jalur karir teknologi Anda dengan program studi yang dirancang untuk memenuhi kebutuhan industri masa depan
+                    </p>
+                </div>
+
+                <!-- Tab Navigation -->
+                <div class="border-b border-gray-200">
+                    <nav class="-mb-px flex space-x-8 overflow-x-auto" aria-label="Tabs">
+                        <button data-tab="s1" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-blue-500 text-blue-600">
+                            Program Sarjana (S1)
+                        </button>
+                        <button data-tab="s2" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                            Program Magister (S2)
+                        </button>
+                        <button data-tab="profesi" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                            Program Profesi
+                        </button>
+                        <button data-tab="rpl" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                            Rekayasa Perangkat Lunak
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="mt-8">
+                    <!-- S1 Programs -->
+                    <div id="s1-content" class="tab-content grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Program cards for S1 -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 p-6">
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-lg font-semibold text-gray-900">Teknik Informatika</h3>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">A</span>
+                                </div>
+                                <p class="text-gray-600 text-sm">Durasi: 8 Semester</p>
+                                <div class="pt-4">
+                                    <button class="text-blue-600 hover:text-blue-700 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
+                                        Selengkapnya →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 p-6">
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-lg font-semibold text-gray-900">Sistem Informasi</h3>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">A</span>
+                                </div>
+                                <p class="text-gray-600 text-sm">Durasi: 8 Semester</p>
+                                <div class="pt-4">
+                                    <button class="text-blue-600 hover:text-blue-700 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
+                                        Selengkapnya →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 p-6">
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-lg font-semibold text-gray-900">Teknik Elektro</h3>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">A</span>
+                                </div>
+                                <p class="text-gray-600 text-sm">Durasi: 8 Semester</p>
+                                <div class="pt-4">
+                                    <button class="text-blue-600 hover:text-blue-700 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
+                                        Selengkapnya →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- S2 Programs (hidden by default) -->
+                    <div id="s2-content" class="tab-content grid md:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
+                        <!-- Program cards for S2 -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 p-6">
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-lg font-semibold text-gray-900">Magister Teknik Informatika</h3>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">A</span>
+                                </div>
+                                <p class="text-gray-600 text-sm">Durasi: 4 Semester</p>
+                                <div class="pt-4">
+                                    <button class="text-blue-600 hover:text-blue-700 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
+                                        Selengkapnya →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Profesi Programs (hidden by default) -->
+                    <div id="profesi-content" class="tab-content grid md:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
+                        <!-- Program cards for Profesi -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 p-6">
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-lg font-semibold text-gray-900">Profesi Insinyur (Ir.)</h3>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">A</span>
+                                </div>
+                                <p class="text-gray-600 text-sm">Durasi: 2 Semester</p>
+                                <div class="pt-4">
+                                    <button class="text-blue-600 hover:text-blue-700 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
+                                        Selengkapnya →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- RPL Programs (hidden by default) -->
+                    <div id="rpl-content" class="tab-content grid md:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
+                        <!-- Program cards for RPL -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 p-6">
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-lg font-semibold text-gray-900">RPL - Sistem Enterprise</h3>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">A</span>
+                                </div>
+                                <p class="text-gray-600 text-sm">Durasi: 8 Semester</p>
+                                <div class="pt-4">
+                                    <button class="text-blue-600 hover:text-blue-700 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
+                                        Selengkapnya →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="berita" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Berita & Highlights</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                        Tetap update dengan perkembangan terbaru dari kampus UTN
+                    </p>
+                </div>
+
+                <div class="max-w-6xl mx-auto">
+                    <div class="relative" role="region" aria-label="News Carousel">
+                        <div class="overflow-hidden">
+                            <div id="news-carousel" class="flex transition-transform duration-500 ease-in-out">
+                                <!-- News Item 1 -->
+                                <div class="w-full flex-shrink-0">
+                                    <div class="m-4">
+                                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 h-full">
+                                            <div class="flex flex-col h-full">
+                                                <!-- TODO: Replace placeholder with actual news image -->
+                                                <div class="h-48 bg-gray-200 rounded-t-2xl flex items-center justify-center text-gray-400">
+                                                    News Image
+                                                </div>
+                                                <div class="p-6 flex-1 flex flex-col">
+                                                    <div class="flex justify-between items-center mb-3">
+                                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-cyan-100 text-cyan-800">Kerja Sama</span>
+                                                        <span class="text-sm text-gray-500">15 Maret 2024</span>
+                                                    </div>
+                                                    <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
+                                                        Rektor UTN Lakukan Kunjungan ke ITB untuk Kerja Sama Riset
+                                                    </h3>
+                                                    <p class="text-gray-600 flex-1 mb-4 line-clamp-3">
+                                                        Kunjungan kerja dalam rangka memperkuat kolaborasi riset dan pengembangan teknologi antara kedua institusi.
+                                                    </p>
+                                                    <button class="text-blue-600 hover:text-blue-700 font-medium text-sm text-left focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
+                                                        Baca Selengkapnya →
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- News Item 2 -->
+                                <div class="w-full flex-shrink-0">
+                                    <div class="m-4">
+                                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 h-full">
+                                            <div class="flex flex-col h-full">
+                                                <div class="h-48 bg-gray-200 rounded-t-2xl flex items-center justify-center text-gray-400">
+                                                    News Image
+                                                </div>
+                                                <div class="p-6 flex-1 flex flex-col">
+                                                    <div class="flex justify-between items-center mb-3">
+                                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-cyan-100 text-cyan-800">Inovasi</span>
+                                                        <span class="text-sm text-gray-500">10 Maret 2024</span>
+                                                    </div>
+                                                    <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
+                                                        UTN Dorong Kedaulatan Digital Kesehatan Melalui Inovasi Teknologi
+                                                    </h3>
+                                                    <p class="text-gray-600 flex-1 mb-4 line-clamp-3">
+                                                        Pengembangan platform digital kesehatan untuk mendukung sistem kesehatan nasional yang lebih efektif.
+                                                    </p>
+                                                    <button class="text-blue-600 hover:text-blue-700 font-medium text-sm text-left focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
+                                                        Baca Selengkapnya →
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- News Item 3 -->
+                                <div class="w-full flex-shrink-0">
+                                    <div class="m-4">
+                                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 h-full">
+                                            <div class="flex flex-col h-full">
+                                                <div class="h-48 bg-gray-200 rounded-t-2xl flex items-center justify-center text-gray-400">
+                                                    News Image
+                                                </div>
+                                                <div class="p-6 flex-1 flex flex-col">
+                                                    <div class="flex justify-between items-center mb-3">
+                                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-cyan-100 text-cyan-800">Internasional</span>
+                                                        <span class="text-sm text-gray-500">5 Maret 2024</span>
+                                                    </div>
+                                                    <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
+                                                        UTN Buka Peluang Magang di Jepang untuk Mahasiswa Teknik
+                                                    </h3>
+                                                    <p class="text-gray-600 flex-1 mb-4 line-clamp-3">
+                                                        Program magang internasional dengan perusahaan teknologi terkemuka di Jepang selama 6 bulan.
+                                                    </p>
+                                                    <button class="text-blue-600 hover:text-blue-700 font-medium text-sm text-left focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
+                                                        Baca Selengkapnya →
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <button id="news-prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 z-10" aria-label="Previous news">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                        <button id="news-next" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 z-10" aria-label="Next news">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+
+                        <!-- Indicators -->
+                        <div class="flex justify-center mt-6 space-x-2">
+                            <button class="news-indicator w-3 h-3 rounded-full bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Go to news 1"></button>
+                            <button class="news-indicator w-3 h-3 rounded-full bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Go to news 2"></button>
+                            <button class="news-indicator w-3 h-3 rounded-full bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Go to news 3"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section id="kolaborasi" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Kolaborasi Strategis</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                        Bersama mitra industri terkemuka, kami memastikan pendidikan yang relevan dan peluang karir yang luas
+                    </p>
+                </div>
+
+                <div class="text-center mb-12">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">UTN Kampus Kolaborasi: UTN x Industri</h3>
+                    <p class="text-gray-600 max-w-3xl mx-auto">
+                        Melalui kemitraan strategis dengan perusahaan teknologi global, 
+                        kami menghadirkan kurikulum terkini, program magang, dan peluang rekruitmen bagi mahasiswa.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-4">
+                    <!-- Partner Logos -->
+                    <div class="flex justify-center items-center p-6 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-md transition-all duration-300">
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-sm">
+                            Google for Education
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center p-6 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-md transition-all duration-300">
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-sm">
+                            Microsoft Indonesia
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center p-6 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-md transition-all duration-300">
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-sm">
+                            IBM Indonesia
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center p-6 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-md transition-all duration-300">
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-sm">
+                            Oracle Academy
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center p-6 bg-gray-50 rounded

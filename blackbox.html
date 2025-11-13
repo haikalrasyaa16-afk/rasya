@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISTN - Institut Sains dan Teknologi Nasional</title>
+  <meta name="description" content="Universitas terdepan di bidang sains dan teknologi dengan fokus pada inovasi dan kolaborasi.">
+  <meta property="og:title" content="ISTN - Institut Sains dan Teknologi Nasional">
+  <meta property="og:description" content="Universitas terdepan di bidang sains dan teknologi dengan fokus pada inovasi dan kolaborasi.">
+  <meta property="og:image" content="/assets/placeholder-og.jpg">
+  <meta property="og:url" content="https://istn.ac.id">
+  <link rel="icon" href="/assets/favicon.ico">
+  <!-- TailwindCSS CDN for utility classes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1e40af',
+            secondary: '#7c3aed'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom styles for animations and overrides */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    .focus-visible:focus {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+    .carousel-slide {
+      transition: transform 0.5s ease-in-out;
+    }
+    .tab-active {
+      background-color: white;
+      color: #111827;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+    .tab-inactive {
+      color: #6b7280;
+    }
+    .tab-inactive:hover {
+      color: #374151;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900">
+  <!-- Skip to content link for accessibility -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white px-4 py-2 rounded-md z-50">Lewati ke konten utama</a>
+
+  <!-- Top Bar -->
+  <div class="bg-gray-900 text-white py-2">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-sm text-center">Selamat datang di ISTN - Institut Sains dan Teknologi Nasional</p>
+    </div>
+  </div>
+
+  <!-- Header/Navbar -->
+  <header class="bg-white shadow-sm sticky top-0 z-40" role="banner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex items-center justify-between" role="navigation" aria-label="Main navigation">
+        <div class="flex items-center">
+          <h1 class="text-xl font-bold text-gray-900">ISTN - Institut Sains dan Teknologi Nasional</h1>
+        </div>
+        <ul class="hidden md:flex space-x-8">
+          <li><a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors">Beranda</a></li>
+          <li><a href="#programs" class="text-gray-700 hover:text-blue-600 transition-colors">Program Studi</a></li>
+          <li><a href="#scholarships" class="text-gray-700 hover:text-blue-600 transition-colors">Beasiswa</a></li>
+          <li><a href="#careers" class="text-gray-700 hover:text-blue-600 transition-colors">Karir</a></li>
+          <li><a href="#register" class="text-gray-700 hover:text-blue-600 transition-colors">Daftar</a></li>
+          <li><a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors">Tentang Kami</a></li>
+          <li><a href="#alumni" class="text-gray-700 hover:text-blue-600 transition-colors">Alumni</a></li>
+          <li><a href="#news" class="text-gray-700 hover:text-blue-600 transition-colors">Berita</a></li>
+          <li><a href="#partners" class="text-gray-700 hover:text-blue-600 transition-colors">Kolaborasi Strategis</a></li>
+          <li><a href="#tdc" class="text-gray-700 hover:text-blue-600 transition-colors">TDC</a></li>
+          <li><a href="#student-life" class="text-gray-700 hover:text-blue-600 transition-colors">Kemahasiswaan</a></li>
+          <li><a href="#annual-report" class="text-gray-700 hover:text-blue-600 transition-colors">Laporan Tahunan</a></li>
+          <li><a href="#internal-apps" class="text-gray-700 hover:text-blue-600 transition-colors">Aplikasi Internal</a></li>
+          <li><a href="#calendar" class="text-gray-700 hover:text-blue-600 transition-colors">Kalender Akademik</a></li>
+        </ul>
+        <!-- Mobile menu button - simplified -->
+        <button class="md:hidden" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20" role="banner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold sm:text-5xl">Selamat Datang di ISTN</h2>
+      <p class="mt-4 text-xl">Mendorong Inovasi dan Kedaulatan Digital untuk Masa Depan</p>
+      <a href="#about" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-colors mt-8">Pelajari Lebih Lanjut</a>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section id="programs" class="py-16 bg-white" role="region" aria-labelledby="programs-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 id="programs-heading" class="text-3xl font-bold text-gray-900 sm:text-4xl">Program Studi</h2>
+        <p class="mt-4 text-lg text-gray-600">Jelajahi berbagai program akademik kami</p>
+      </div>
+      <!-- Tab Group - Simplified static version -->
+      <div class="flex space-x-1 bg-gray-100 p-1 rounded-lg mb-8">
+        <button class="flex-1 py-2 px-4 text-sm font-medium rounded-md tab-active" aria-selected="true" role="tab">S1</button>
+        <button class="flex-1 py-2 px-4 text-sm font-medium rounded-md tab-inactive" role="tab">S2</button>
+        <button class="flex-1 py-2 px-4 text-sm font-medium rounded-md tab-inactive" role="tab">Profesi</button>
+        <button class="flex-1 py-2 px-4 text-sm font-medium rounded-md tab-inactive" role="tab">RPL</button>
+      </div>
+      <!-- S1 Programs (default active) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900">Teknik Informatika</h3>
+            <p class="mt-2 text-gray-600">Program studi yang fokus pada pengembangan perangkat lunak dan sistem informasi.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900">Teknik Elektro</h3>
+            <p class="mt-2 text-gray-600">Belajar tentang elektronika, telekomunikasi, dan sistem kontrol.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900">Teknik Sipil</h3>
+            <p class="mt-2 text-gray-600">Mempelajari konstruksi, struktur, dan infrastruktur.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News/Highlights -->
+  <section id="news" class="py-16 bg-gray-50" role="region" aria-labelledby="news-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 id="news-heading" class="text-3xl font-bold text-gray-900 sm:text-4xl">Berita & Sorotan</h2>
+        <p class="mt-4 text-lg text-gray-600">Update terbaru dari ISTN</p>
+      </div>
+      <!-- Carousel - Simplified static version -->
+      <div class="relative overflow-hidden rounded-lg">
+        <div class="flex carousel-slide">
+          <div class="w-full flex-shrink-0">
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <img src="/assets/placeholder-news1.jpg" alt="Rektor ISTN Lakukan Kunjungan ke ITB" class="w-full h-48 object-cover" loading="lazy">
+              <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-900">Rektor ISTN Lakukan Kunjungan ke ITB</h3>
+                <p class="mt-2 text-gray-600">Kunjungan untuk memperkuat kolaborasi antar universitas.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Add more slides as needed -->
+        </div>
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          <button class="w-3 h-3 rounded-full bg-white" aria-label="Go to slide 1"></button>
+          <button class="w-3 h-3 rounded-full bg-white/50" aria-label="Go to slide 2"></button>
+          <button class="w-3 h-3 rounded-full bg-white/50" aria-label="Go to slide 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners/Collaboration -->
+  <section id="partners" class="py-16 bg-white" role="region" aria-labelledby="partners-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 id="partners-heading" class="text-3xl font-bold text-gray-900 sm:text-4xl">ISTN Kampus Kolaborasi: ISTN x Industri</h2>
+      </div>
+      <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4">
+        <img src="/assets/placeholder-logo1.jpg" alt="Partner 1" class="h-12 w-auto" loading="lazy">
+        <img src="/assets/placeholder-logo2.jpg" alt="Partner 2" class="h-12 w-auto" loading="lazy">
+        <img src="/assets/placeholder-logo3.jpg" alt="Partner 3" class="h-12 w-auto" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Alumni Highlights -->
+  <section id="alumni" class="py-16 bg-gray-50" role="region" aria-labelledby="alumni-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 id="alumni-heading" class="text-3xl font-bold text-gray-900 sm:text-4xl">Sorotan Alumni</h2>
+        <p class="mt-4 text-lg text-gray-600">Prestasi alumni ISTN</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <img src="/assets/placeholder-alumni1.jpg" alt="Dr. Ir. Afrianyah Noor" class="w-full h-48 object-cover" loading="lazy">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900">Dr. Ir. Afrianyah Noor</h3>
+            <p class="mt-2 text-gray-600">Alumni terkemuka di bidang teknologi.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <img src="/assets/placeholder-alumni2.jpg" alt="Prof. Budi Santoso" class="w-full h-48 object-cover" loading="lazy">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900">Prof. Budi Santoso</h3>
+            <p class="mt-2 text-gray-600">Kontribusi besar dalam penelitian sains.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media -->
+  <section class="py-16 bg-white" role="region" aria-labelledby="social-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 id="social-heading" class="text-3xl font-bold text-gray-900 sm:text-4xl">Ikuti Kami</h2>
+      </div>
+      <div class="flex justify-center space-x-8">
+        <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors" aria-label="Follow us on Facebook">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+          </svg>
+        </a>
+        <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors" aria-label="Follow us on Twitter">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+          </svg>
+        </a>
+        <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors" aria-label="Follow us on Instagram">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+          </svg>
+        </a>
+        <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors" aria-label="Follow us on LinkedIn">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Podcast/Radio Teaser -->
+  <section class="py-16 bg-gray-50" role="region" aria-labelledby="podcast-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 id="podcast-heading" class="text-3xl font-bold text-gray-900 sm:text-4xl">Podcast ISTN</h2>
+        <p class="mt-4 text-lg text-gray-600">Dengarkan wawasan dari para ahli di ISTN.</p>
+      </div>
+      <div class="text-center">
+        <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-colors">Dengarkan Sekarang</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Campus Info -->
+  <section id="about" class="py-16 bg-white" role="region" aria-labelledby="about-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 id="about-heading" class="text-3xl font-bold text-gray-900 sm:text-4xl">Tentang Kami</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900">Visi</h3>
+          <p class="mt-2 text-gray-600">Menjadi universitas terdepan dalam sains dan teknologi.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900">Misi</h3>
+          <p class="mt-2 text-gray-600">
